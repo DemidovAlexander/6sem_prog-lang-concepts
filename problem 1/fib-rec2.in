@@ -1,0 +1,38 @@
+LET N 0
+LET ZERO 0
+LET ONE 1
+LET TWO 2
+LET RETURN_VALUE 0
+LET ANSWER 0
+IN N
+CMP N ZERO
+JG next1
+OUT ZERO
+END
+next1:
+CALL fibonacci
+OUT RETURN_VALUE
+END
+fibonacci:
+CMP N ONE
+JQ exit_fibonacci1
+JL exit_fibonacci2
+SUB ONE N
+PUSH N
+CALL fibonacci
+POP N
+MOV RETURN_VALUE ANSWER
+SUB ONE N
+PUSH ANSWER
+CALL fibonacci
+POP ANSWER
+ADD RETURN_VALUE ANSWER
+JMP exit_fibonacci3
+exit_fibonacci1:
+MOV ONE ANSWER
+JMP exit_fibonacci3
+exit_fibonacci2:
+MOV ZERO ANSWER
+exit_fibonacci3:
+MOV ANSWER RETURN_VALUE
+RET

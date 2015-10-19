@@ -1,0 +1,32 @@
+LET A 0
+LET B 1
+LET BUF 0
+LET N 0
+LET ONE 1
+LET CX 0
+LET ZERO 0
+LET ANSWER 0
+IN N
+CMP N ZERO
+JG next1
+OUT ZERO
+END
+next1:
+MOV ONE CX
+CALL fibonacci
+OUT ANSWER
+END
+fibonacci:
+CMP CX N
+JQ exit_fibonacci1
+ADD ONE CX
+MOV A BUF
+ADD B BUF
+MOV B A
+MOV BUF B
+CALL fibonacci
+JMP exit_fibonacci2
+exit_fibonacci1:
+MOV B ANSWER
+exit_fibonacci2:
+RET

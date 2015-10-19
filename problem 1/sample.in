@@ -1,0 +1,15 @@
+LET A 110
+LET B 111
+LET C 211
+CALL fibonacci
+CALL fer
+OUT C
+END
+fibonacci:
+PUSH A
+POP B
+OUT B
+RET
+fer:
+OUT B
+RET
